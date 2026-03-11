@@ -27,13 +27,13 @@ alias jr='cd $JOT && nvim refs.md'
 # usage: jq "fix the nginx timeout thing"
 jq() { printf "%s\n" "$*" >> "$JOT/scratch.md" && echo "→ scratch"; }
 
-# quick capture idea without opening editor
+# quick capture links without opening editor
 # usage: ja "cli tool that diffs two directory trees"
-ja() { printf -- "- %s\n" "$*" >> "$JOT/ideas.md" && echo "→ ideas"; }
+ja() { printf -- "- %s\n" "$*" >> "$JOT/refs.md" && echo "→ refs"; }
 
 # search all notes
 # usage: jg "deadlock"
-jg() { cd "$JOT" && grep -ri --color=auto "$1" --include='*.md'; }
+jf() { cd "$JOT" && grep -ri --color=auto "$1" --include='*.md'; }
 
 # save: pull first to avoid conflicts, then commit and push
 jc() {
