@@ -1,0 +1,1 @@
+- drizzle-blog: https://blog.logrocket.com/drizzle-orm-adoption-guide/#getting-started-drizzle

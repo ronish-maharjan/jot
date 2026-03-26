@@ -1,1 +1,15 @@
 - [x] Learn Eslint
+- Eslint we can install using just 'npm install -D eslint' nothing fancy required
+- single * mean match in single folder level where as ** mean match anything infinite deep folder nested
+- Clean pacman sudo pacman -Scc 
+- migration means converting the orm code to the actual sql code
+- In context to drizzle `drizzle-kit generate` will generate the sql code and `drizzle-kit push` will run that code in the db
+- In drizzle the key used in the object are not the table name the table names are the name put inside the function provided by the drizzle like uuid('this is table name') not (this is not)
+- integer: used to store normal number not decimal can store up to 2.1billion something like that also can store negative number
+- numeric: used when you want fixed number like in price we want decimal to be up to 2 or in rating where we want limited number
+todo: [ ] whats the job of dotenv how and why we use it ? 
+- to see all the list of units of service we need to add systemctl list-units --all or list-unit-files
+- env in node is like the environment variables that are in the os like /home/ronish so to set that in node we use dotenv
+- todo: learn drizzle then zod cause thats the flow i found
+- Ctrl+r in terminal will help to serch the history of command :)
+- docker container uses images so dont delete even if the container is created already the container runs on top of the image
