@@ -13,3 +13,5 @@ todo: [ ] whats the job of dotenv how and why we use it ?
 - todo: learn drizzle then zod cause thats the flow i found
 - Ctrl+r in terminal will help to serch the history of command :)
 - docker container uses images so dont delete even if the container is created already the container runs on top of the image
+- just findout docker compose up is to create and start the container with compose file and docker compose down is to stop and delete the container too not only to stop , we have docker compose stop and start to start and stop existing composed containers.
+- always use id instead of user_id for the key because we already know the table is user and its redundent so dont use that.
