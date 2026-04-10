@@ -1,1 +1,2 @@
 - drizzle-blog: https://blog.logrocket.com/drizzle-orm-adoption-guide/#getting-started-drizzle
+- free_db: https://neon.com, https://aiven.io/
