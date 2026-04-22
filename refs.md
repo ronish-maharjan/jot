@@ -1,2 +1,7 @@
 - drizzle-blog: https://blog.logrocket.com/drizzle-orm-adoption-guide/#getting-started-drizzle
 - free_db: https://neon.com, https://aiven.io/
+- SOLID Principle: 
+    - https://github.com/devbootstrap/SOLID-Principles-Examples-using-Typescript 
+    - https://blog.logrocket.com/applying-solid-principles-typescript/
+    - https://medium.com/@navidbarsalari/solid-principles-in-typescript-a-complete-practical-guide-with-real-examples-83f25e093bdf
+    - https://khalilstemmler.com/articles/solid-principles/solid-typescript/
