@@ -12,3 +12,9 @@
     - https://www.w3schools.com/typescript/typescript_error_handling.php
     - https://javascript.info/custom-errors
     - https://bobbyhadz.com/blog/typescript-extend-error-class
+
+- Configuration/validation
+    - https://jsdev.space/howto/env-ts-zod/
+    - https://douglasmoura.dev/validate-your-environment-variables-with-zod
+    - https://12factor.net/config
+
