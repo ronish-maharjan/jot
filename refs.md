@@ -18,3 +18,12 @@
     - https://douglasmoura.dev/validate-your-environment-variables-with-zod
     - https://12factor.net/config
 
+- Hexagonal Architecture
+    - https://medium.com/@yecaicedo/structuring-a-node-js-project-with-hexagonal-architecture-7be2ef1364e2
+    - https://github.com/Sairyss/domain-driven-hexagon
+
+- Testing
+    - https://vitest.dev/guide
+    - https://betterstack.com/community/guides/testing/
+    - https://reintech.io/blog/how-to-use-typescript-with-vitest-modern-testing-setup
+    - https://dev.to/axsh/mock-vs-spyon-in-vitest-with-typescript
