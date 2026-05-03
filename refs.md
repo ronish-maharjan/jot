@@ -1,6 +1,13 @@
 - drizzle-blog: https://blog.logrocket.com/drizzle-orm-adoption-guide/#getting-started-drizzle
 - free_db: https://neon.com, https://aiven.io/
 
+- Linux practice and other website to learn
+    - https://sadservers.com/
+    - https://killercoda.com/
+
+- Best articles for devops
+    - https://devopscube.com
+
 - SOLID Principle: 
     - https://github.com/devbootstrap/SOLID-Principles-Examples-using-Typescript 
     - https://blog.logrocket.com/applying-solid-principles-typescript/
@@ -38,3 +45,4 @@
     - https://dev.to/signoz/pino-logger-complete-guide-to-logging-in-nodejs-with-pino-7b
     - https://opentelemetry.io/docs/languages/js/getting-started/nodejs/
     - https://www.dash0.com/guides/logging-in-node-js-with-pino
+
