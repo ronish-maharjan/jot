@@ -80,3 +80,8 @@ ssh-copy-id -i <path_to_public_key> user@hostname
 ```
 
 >**Note** Require password login enabled
+
+
+> **Key Notes** 
+- **ServerAliveInterval**: used to send small packet on given time so that ssh connection doesnt dies.`ServerAliveInterval 60` sends every 60 second 
+- **ServerAliveCountMax**: how many times it should send the alive packet  `ServerAliveCountMax 10` 
