@@ -58,6 +58,7 @@ host <anything> // this is the name that u used to connect like ssh <anything>
     user <user to login> 
     port <which port sshd is listening to>
     IdentityFile <path to private ssh key>
+    ConnectTimeout <time>  // used to timeout automatically after given time so that it doesnt continuously try to connect
 ```
 
 
@@ -69,3 +70,13 @@ scp -i <private_key_path> -P <port> "file_path_to_send" user@hostname:<server_pa
 ```
 
 > **Note** Here its **-P not -p** remember.
+
+### Copy the public key directly 
+- We can directly copy the ssh public key without any problem 
+- Only problem is PasswordAuthentication should be enabled first 
+
+```bash
+ssh-copy-id -i <path_to_public_key> user@hostname
+```
+
+>**Note** Require password login enabled
