@@ -2,7 +2,7 @@
 
 > **Remember: I haven't explain all the commands that are basics cause i have learned git many times and i know basic commands how it work also this is the final time i will be learing properly with writing the notes**
 
-> skipped: **add,commit,log**
+> skipped: **add,commit**
 
 > Git have lots of command and most used are called **porcelain** commands may be i heard some where
 
