@@ -87,6 +87,8 @@ eg:
 - Then it will save the new commits after the closest ancestor of the current branch 
 - Then it will move the pointer of the current branch to the latest commit of the traget branch  
 
+> **To Easily Remember what rebase does just think of like move my new commit to the front of the target branch**
+
 ### Visually 
 ```bash
                   (Target Branch)
@@ -122,3 +124,18 @@ Now "Closest Ancestor" becomes D.
 -- **`--hard`** will do same thing as soft but the changes will be gone.
 
 > **Note** hard will remove all commit and it will be gone forever we can say but reflog can get it back with pain in ass.
+
+---
+
+## Git Remote Stuffs
+
+- Remote in git is like a copy of the repository address it can be in github or in locall also.
+- Basic command to add remote is `git remote add name url` so save it in your brain
+
+### Fetch command
+- This will download all the `.git/objects` files in the local repo from the remote one
+- This will just download the file and we can check in logs
+
+### Pull command
+- Its like fetch but it will auto rebase if config **pull.rebase** is true 
+- In simple it does fetch + rebase on once 
