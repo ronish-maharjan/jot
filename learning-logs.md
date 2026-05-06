@@ -1,0 +1,198 @@
+# Daily Learnings
+
+---
+
+## Date: `18/12/2025`
+
+### Insight
+Everything passed into domain functions must be a Value Object.
+
+### Notes
+- All data entering the Application layer is in raw form.
+- It is the responsibility of the Application layer to convert raw data into Value Objects.
+- Data flowing inside the Domain layer should always be in Value Object form.
+- Use the `Vo` suffix only at boundary layers.
+- Do not use naming conventions like `accountVo` inside the domain.
+
+### Gotcha
+- Passing raw primitives directly into domain logic breaks domain purity.
+
+---
+
+## Date: `19/12/2025`
+
+### Insight
+CQRS is an advanced way of structuring use cases in Hexagonal Architecture.
+
+### Notes
+- CQRS separates command (write) and query (read) responsibilities.
+- Useful when application complexity increases.
+
+---
+
+## Date: `23/12/2025`
+
+### Insight
+Named parameters make domain APIs safer and more expressive.
+
+### Notes
+- Prefer named parameters for domain `create` and behavior methods.
+- Avoid positional parameters to reduce argument-order bugs.
+
+### Gotcha
+- Positional parameters become error-prone as the number of arguments grows.
+
+---
+
+## Date: `24/12/2025`
+
+### Insight
+JavaScript edge cases and mutation can silently affect domain correctness.
+
+### Notes
+- `-0 === 0` evaluates to true in JavaScript.
+- Use `Object.is(value, -0)` to explicitly detect `-0`.
+- Objects passed into constructors can be mutated unintentionally.
+
+### Gotcha
+- Internal mutation inside constructors.
+- Mutation caused by passing objects by reference.
+
+---
+
+## Date: `25/12/2025`
+
+### Insight
+Javascript difference between splice and slice.
+
+### Notes
+- `splice` will change the original array where as `slice` will not change.
+- `splice` take parameter (index,count) how many to delete form the given index).
+- `slice` take parameter (index, index) exclude the last index.
+
+### Example
+
+```js
+const arr = [1, 2, 3];
+
+arr.slice(1); // default value for end is length of array here its 3  
+// arr → [1, 2, 3]
+
+arr.splice(1);  //default value for count is 1.
+// arr → [1]
+
+```
+
+---
+
+### Insight
+Why use private specifier than public readonly in most of the class and valueobject.
+
+### Notes
+- `Public` are generally dumb attribute it return exact value showing whole object structure as well. Also we cant add extra logic.
+- `Private` helps to hide what data are present in object and just provide an interface like getter to access data where later if we neeed to add any logic we can add easily.
+
+### Example: `Comparision Between private and public attributes`
+
+```typescript
+// using public type
+class Thermometer {
+  public readonly celsius: number; // Structure is EXPOSED
+
+  constructor(value: number) {
+    this.celsius = value;
+  }
+}
+
+// USAGE in 100 different files:
+const t = new Thermometer(25);
+console.log(t.celsius + "°C"); 
+
+// THE DISASTER:
+// If the boss says "We now store everything in Kelvin internally,"
+// you have to find and fix all 100 files because '.celsius' 
+// doesn't exist or has changed.
+
+// Using Private type (The Senior Way)
+class Thermometer {
+  #_internalValue: number; // Hidden from the world
+
+  constructor(celsius: number) {
+    this.#_internalValue = celsius; // Initial internal state
+  }
+
+  // The Interface (The "Window" people look through)
+  public get celsius(): number {
+    return this.#_internalValue;
+  }
+}
+
+// THE FUTURE REFACTOR (The "Boss" change):
+class Thermometer {
+  #_kelvin: number; // We changed the internal "Truth" to Kelvin
+
+  constructor(celsius: number) {
+    this.#_kelvin = celsius + 273.15; // Convert on the way IN
+  }
+
+  public get celsius(): number {
+    // We convert on the way OUT. 
+    // Result: 100 files using .celsius NEVER BREAK.
+    return this.#_kelvin - 273.15; 
+  }
+}
+
+// so in future even if we make the celcius to kelvin we jsut have to add some logic to change it to celcius agian
+
+get celcius(){
+    // we just have to write a logic to convert the kelvin to celcisu and return it
+    const celcius = kelvin -273.15 //we just have to add this logic
+    reutrn this.celcius
+}
+
+```
+---
+
+
+## Date: `26/12/2025`
+
+### Insight
+Learning indepth on application layer of hexagonal architecture.
+
+### Notes
+- The **usecase** cannot use another usecases inside it like we use repository through ports.
+- We use **Event Driven architecture** here for handling multiple usecases.
+
+---
+
+## Date: `27/12/2025`
+
+### Overview
+Senior developers mostly make the class attributes private so start using # for private for attribute mostly.Also `getter` and `method` to provide private data have some differences.
+
+### Notes
+- Always make **classes** **attributes** private.
+- Use **Getter** for giving values rather than using the method to return the private values.
+- Use **Methods** for performing logics or task not for throwing **single** value
+
+---
+
+### Overview
+**`Events`** are basically a **class** that stores the value of a certain task performed.The main benifit of this class is we can use that event class to pass in other functions which are called **Handlers** and perform specific task.
+
+`More on`: [Featured Based Structure](../topics/featured-based-structure.md)
+
+
+
+## Date: `29/12/2025`
+
+### Overview
+Value objects are used for like reducing same code repetation as well as to reduce bugs of passing value as references.
+
+### Notes
+- when we dont use valueobjects and use normal way like when we pass object data or array and want to change it then if we change something which is passed as references then everywhere the object is used will have that change effect.
+- Value object remove that references bug cause the value are immutable in vos if we want to change the value of vos we have to create new valueobject making it safe.
+
+### New Learnings
+- use **Factory functions** also in **Value Objects**.
+- return **value objects** from the getters rather than actual raw values.
