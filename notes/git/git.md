@@ -81,7 +81,7 @@ eg:
 ---
 
 ## Git Rebase
-- Its hard to understand this rebase but after understanding i feel more comfortable using it than commit 
+- Its hard to understand this rebase but after understanding i feel more comfortable using it than merge 
 - So it does three things 
 - First it look for the **closest ancestor** between the **target branch** and the **current branch** you are on 
 - Then it will save the new commits after the closest ancestor of the current branch 
@@ -117,7 +117,7 @@ Now "Closest Ancestor" becomes D.
 
 ## Git Reset
 - Its most benificial things in git 
-- So it also have two modes **soft and hard** 
+- It have two modes **soft and hard** 
 - **`--soft`** will undo the commit but the changes will remain there
 -- **`--hard`** will do same thing as soft but the changes will be gone.
 
