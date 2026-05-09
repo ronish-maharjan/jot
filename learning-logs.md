@@ -182,7 +182,7 @@ Senior developers mostly make the class attributes private so start using # for 
 
 `More on`: [Featured Based Structure](../topics/featured-based-structure.md)
 
-
+---
 
 ## Date: `29/12/2025`
 
@@ -196,3 +196,116 @@ Value objects are used for like reducing same code repetation as well as to redu
 ### New Learnings
 - use **Factory functions** also in **Value Objects**.
 - return **value objects** from the getters rather than actual raw values.
+
+---
+
+## Date: `09/05/2026`
+
+### Overview
+- Naming the variables inside the repositroy code should be in this fromat row, rows, db<column_name>
+
+### Notes
+
+#### Backend Variable Naming Convention 
+
+**Golden Rule**
+
+> **DB = snake_case | Code = camelCase | Mapper = bridge between them**
+
+---
+
+#### 1. Database layer (RAW Drizzle results)
+
+- **Multiple rows**
+
+```ts
+const rows = await db.select().from(jobs);
+```
+
+- **Single row**
+
+```ts
+const row = await db.select().from(jobs).where(...);
+```
+
+> Use when data is **directly from DB**
+
+---
+
+#### 2. Data going INTO database (INSERT / UPDATE)
+
+```ts
+const dbJob = JobMapper.toDB(job);
+```
+
+> Meaning: ready for DB insert/update
+> Prefix rule: `db`
+
+---
+
+#### 3. Domain layer (business logic objects)
+
+```ts
+const job = JobMapper.toDomain(row);
+```
+
+> Meaning: clean application object
+> camelCase fields
+> No DB format inside
+
+---
+
+#### 4. Lists (VERY IMPORTANT)
+
+- **DB list**
+
+```ts
+const rows = await db.select().from(jobs);
+```
+
+- **Domain list**
+
+```ts
+const jobs = rows.map(JobMapper.toDomain);
+```
+
+> Always plural for arrays
+
+---
+
+#### Quick Recaps
+
+**Single items**
+
+| Type            | Name    |
+| --------------- | ------- |
+| DB row          | `row`   |
+| Domain object   | `job`   |
+| DB write object | `dbJob` |
+
+---
+
+**Collections**
+
+| Type        | Name   |
+| ----------- | ------ |
+| DB rows     | `rows` |
+| Domain list | `jobs` |
+
+---
+
+#### Example (perfect clean flow)
+
+```ts
+const dbJob = JobMapper.toDB(job);
+
+await db.insert(jobs).values(dbJob);
+
+const rows = await db.select().from(jobs);
+
+const jobs = rows.map(JobMapper.toDomain);
+
+const row = rows[0];
+
+const job = JobMapper.toDomain(row);
+```
