@@ -309,3 +309,17 @@ const row = rows[0];
 
 const job = JobMapper.toDomain(row);
 ```
+
+---
+
+## Date: `12/05/2026`
+
+### Overview
+So generally we should not use try catch inside the domain , use only one outer try catch on usecase and in each external call in adapter should use the try catch block and also in controller.
+
+### Notes
+- **Domain entity** will only contain logic and even if error its catched by usecase cause usecase already have **one outermost try catch block**.
+- **Usecase** will have only one outer most trycatch block thats wrap whole execute function if any unexpected error happen we return unexpected error.
+- **Adapter** should use try catch block each external call like calling apis.
+- **Repository** should not use try catch bubble up the error and it will be catched by try catch block in usecase if any unexpected error like connection failed occured.
+- **Controller** should always use try catch and use catch to pass all error on global error handler. 
