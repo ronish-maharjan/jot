@@ -323,3 +323,199 @@ So generally we should not use try catch inside the domain , use only one outer 
 - **Adapter** should use try catch block each external call like calling apis.
 - **Repository** should not use try catch bubble up the error and it will be catched by try catch block in usecase if any unexpected error like connection failed occured.
 - **Controller** should always use try catch and use catch to pass all error on global error handler. 
+
+
+## Date: `13/05/2026`
+
+### Overview
+what exactly is **stacktrace** and what is that **cause** property in the errro.
+
+### Notes
+- From my understanding the stack trace is created on where the error is created or occured and by created i mean using **new or automatically created which is Error** and include every bubble up it passed up to where the error is thrown.
+
+### 1. What is a Stack Trace?
+
+A **stack trace** is a snapshot of the **function call stack** at the moment an `Error` object is created.
+
+It shows:
+
+* The sequence of function calls that led to the error
+* Where the error originated in the code
+* The execution path (call chain)
+
+### Example:
+
+```js
+function a() {
+  b();
+}
+
+function b() {
+  c();
+}
+
+function c() {
+  throw new Error("Something went wrong");
+}
+
+a();
+```
+
+### Stack trace output:
+
+```
+Error: Something went wrong
+    at c (app.js:10)
+    at b (app.js:6)
+    at a (app.js:2)
+```
+
+### How to read it:
+
+* Top line → error message
+* Below lines → call stack (most recent first)
+* Bottom → earliest function in the chain
+
+---
+
+### 2. When is Stack Trace Created?
+
+### Stack trace is created when:
+
+```js
+new Error("message")
+```
+
+or when the runtime automatically creates an error.
+
+### NOT when:
+
+```js
+throw error;
+```
+
+Throwing only propagates the error — it does NOT create or modify the stack trace.
+
+---
+
+### 3. Important Rule
+
+> The stack trace is captured at the moment the `Error` object is created.
+
+NOT:
+
+* when it is thrown
+* when it is caught
+* when it bubbles up
+
+---
+
+### 4. Error as Return Value vs Throw
+
+### Case 1: Returning an Error (no stack impact at throw site)
+
+```js
+function c() {
+  return new Error("fail");
+}
+
+function a() {
+  const err = c();
+  throw err;
+}
+```
+
+### Result:
+
+* Stack trace reflects where `new Error()` was created (inside `c`)
+* NOT where it was thrown (`a`)
+
+---
+
+### Case 2: Throwing Immediately (correct stack)
+
+```js
+function c() {
+  throw new Error("fail");
+}
+```
+
+### Result:
+
+* Stack trace shows full call chain:
+
+```
+at c
+at b
+at a
+```
+
+---
+
+### 5. What is the `cause` Property?
+
+The `cause` property allows **error chaining**.
+
+It helps preserve the original error when wrapping it.
+
+### Example:
+
+```js
+function fetchData() {
+  throw new Error("Database connection failed");
+}
+
+function getUser() {
+  try {
+    fetchData();
+  } catch (err) {
+    throw new Error("Failed to get user", { cause: err });
+  }
+}
+```
+
+### Result:
+
+* Main error = "Failed to get user"
+* Cause = original DB error
+
+---
+
+### 6. Stack Trace vs Cause
+
+| Concept     | Meaning                                                  |
+| ----------- | -------------------------------------------------------- |
+| Stack Trace | Where the error object was created                       |
+| Cause       | The underlying error that triggered a higher-level error |
+
+---
+
+### 7. Mental Model
+
+### Stack Trace:
+
+> “How did execution reach the point where the error was created?”
+
+### Cause:
+
+> “What original error caused this higher-level failure?”
+
+---
+
+## 8. Key Takeaways
+
+* Stack trace is captured only at `new Error()`
+* Throwing an error does NOT change stack trace
+* Returning errors removes automatic stack propagation
+* Use `cause` to preserve original errors in layered systems
+* Stack trace = execution path snapshot at creation time
+
+---
+
+## 9. Quick Summary
+
+> Stack trace = snapshot of function calls at error creation time
+> Cause = link to original underlying error
+> Throwing = just propagates the existing error object
+
+---
