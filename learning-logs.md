@@ -519,3 +519,14 @@ function getUser() {
 > Throwing = just propagates the existing error object
 
 ---
+
+## Date: `16/05/2026`
+
+### overview
+Variable naming conventions 
+
+### notes 
+
+- so name the parameter inside the functions that take entity as entity like **function(entity:EntityType), function(entity:User)** instead of like **function(user:User)**
+- the variable name holding the enitity in repositoryshoudl have suffix enitity like **UserEntity** on other place like usecases use normal **user**.
+- the name for the **parameter** for the factory function of entity use as **props** like **create(props:CreateUserProps)** also see the type name remember that 
