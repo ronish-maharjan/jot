@@ -8,6 +8,10 @@
 - Best articles for devops
     - https://devopscube.com
 
+- Acid Properties
+    - https://medium.com/@shivambhadani_/acid-properties-explained-a-complete-guide-with-postgresql-implementation-071afa6aaf8a
+    - https://medium.com/@cong.nguyenthanh.2304/postgresql-acid-in-depth-786f04479161 
+
 - SOLID Principle: 
     - https://github.com/devbootstrap/SOLID-Principles-Examples-using-Typescript 
     - https://blog.logrocket.com/applying-solid-principles-typescript/
@@ -37,7 +41,7 @@
     - https://reintech.io/blog/how-to-use-typescript-with-vitest-modern-testing-setup
     - https://dev.to/axsh/mock-vs-spyon-in-vitest-with-typescript
 
-- Migration
+- Migration/Sql
     - https://sqlzoo.net/wiki/SQL_Tutorial
     - https://dev.to/sameer_saleem/the-ultimate-guide-to-drizzle-orm-postgresql-2025-edition-22b
 
@@ -45,4 +49,5 @@
     - https://dev.to/signoz/pino-logger-complete-guide-to-logging-in-nodejs-with-pino-7b
     - https://opentelemetry.io/docs/languages/js/getting-started/nodejs/
     - https://www.dash0.com/guides/logging-in-node-js-with-pino
+
 
