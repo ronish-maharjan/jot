@@ -1,6 +1,10 @@
 - drizzle-blog: https://blog.logrocket.com/drizzle-orm-adoption-guide/#getting-started-drizzle
 - free_db: https://neon.com, https://aiven.io/
 
+- Design Patterns
+    - https://refactoring.guru/design-patterns/observer
+    - https://medium.com/@abhijeetv007/observer-design-pattern-explained-with-real-life-examples-c12ec5ce7b16
+
 - Linux practice and other website to learn
     - https://sadservers.com/
     - https://killercoda.com/
