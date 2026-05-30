@@ -527,6 +527,71 @@ Variable naming conventions
 
 ### notes 
 
-- so name the parameter inside the functions that take entity as entity like **function(entity:EntityType), function(entity:User)** instead of like **function(user:User)**
-- the variable name holding the enitity in repositoryshoudl have suffix enitity like **UserEntity** on other place like usecases use normal **user**.
-- the name for the **parameter** for the factory function of entity use as **props** like **create(props:CreateUserProps)** also see the type name remember that 
+- use actual name as **params** what is **passing** inside the function like **function(user:User)** instead of **function(entity:User)**
+- the variable name holding the entity in repository name it as entitty name like **user = mapper.toDomain(row)**  
+- **important to remmenber** for the **attributes** while creating and restoring entity the type name are differnet 
+    - while **creating** the type name have suffix **input** eg **createUserInput** as it need to validate
+    - But for **restoring** the type name have suffix **props** eg ** restoreUserProps** as it is aready validated.
+
+---
+
+## Date: `27/05/2026`
+
+### overview 
+How data should be manipulated in different boundaries.
+
+### notes 
+
+- use **mapper** to convert the db to domain and domain to db
+- use **ApiResponse** class like the result pattern to return response from controller
+- the **Vos** are used by the entity not by usecase cause if we do then the domain is leaked to application so usecase just create entity
+
+### conclusion
+- Use mapper to convert data ,create an apiclass that will convert/format the response data for api
+---
+
+## Date: `28/05/2026`
+
+## overview
+Learning Pattern 
+
+## Notes
+- Instead of learning randomly follow this 
+    - SOLID Principle
+    - Error Handling
+    - Env Configs
+    - Zod Validation 
+    - Hexagonal Architecture
+    - Testing
+    - Db Migration 
+    - Logging / open telementary
+    - Graceful Shutdown 
+    - Circuit Breaker
+    - Idempotency
+    - Event Driven Architecture
+    - CQRS 
+
+- Different patterns to learn 
+    - Result pattern  also known as railway pattern
+    - Observer pattern 
+    - Specification Pattern 
+    - strategy pattern
+
+    - Better to know have some idea 
+        - builder pattern 
+        - factory pattern
+
+
+    -- more to be added in future 
+
+
+## Date `29/05/2026`
+
+## Overview
+
+## Notes 
+    - **replace** function will only replace **first match** not all
+    - use **replaceAll** function to replace all 
+
+
+
