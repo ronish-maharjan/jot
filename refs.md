@@ -1,5 +1,17 @@
-- drizzle-blog: https://blog.logrocket.com/drizzle-orm-adoption-guide/#getting-started-drizzle
-- free_db: https://neon.com, https://aiven.io/
+- React 
+    - https://spec.fm/podcasts/reactpodcast
+
+- drizzle-blog:
+     - https://blog.logrocket.com/drizzle-orm-adoption-guide/#getting-started-drizzle
+
+- free_db
+    - https://neon.com, https://aiven.io/
+
+- Icons
+    - https://feathericons.com/
+
+- Javascript
+    - https://daveceddia.com/javascript-references/
 
 - Design Patterns
     - https://refactoring.guru/design-patterns/observer
@@ -48,6 +60,7 @@
 - Migration/Sql
     - https://sqlzoo.net/wiki/SQL_Tutorial
     - https://dev.to/sameer_saleem/the-ultimate-guide-to-drizzle-orm-postgresql-2025-edition-22b
+    - https://sqlbolt.com
 
 - Logging and OpenTelementary
     - https://dev.to/signoz/pino-logger-complete-guide-to-logging-in-nodejs-with-pino-7b
