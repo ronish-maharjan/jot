@@ -582,6 +582,10 @@ Learning Pattern
         - factory pattern
 
 
+- After knowing how to write better code lets understan on how system works like databases 
+    - Basic DB stuff
+        - CRUD operations
+        - Joins
     -- more to be added in future 
 
 
@@ -592,6 +596,4 @@ Learning Pattern
 ## Notes 
     - **replace** function will only replace **first match** not all
     - use **replaceAll** function to replace all 
-
-
 
