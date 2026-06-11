@@ -1,3 +1,6 @@
+- Linux-understanding
+    - https://man7.org/tlpi/index.html
+
 - React 
     - https://spec.fm/podcasts/reactpodcast
 
