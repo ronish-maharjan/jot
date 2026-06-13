@@ -1,5 +1,9 @@
 - Linux-understanding
     - https://man7.org/tlpi/index.html
+    - https://labex.io/linuxjourney
+
+- Networking
+     - https://gaia.cs.umass.edu/kurose_ross/online_lectures.htm
 
 - React 
     - https://spec.fm/podcasts/reactpodcast
